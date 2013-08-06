@@ -7,26 +7,24 @@ require 'json'
 
 Mongoid.load!("mongoid.yml", :development)
 
-class User
-    include Mongoid::Document
+class Fruit
+  include Mongoid::Document
 
-    field :name
-    field :email
+  field :name
 end
 
 ## Sinatra app
 ## ===========
 
-# display signup form
 get '/' do
-    
+  @fruits = Fruit.all 
+  erb :index
 end
 
-# add new user, display thanks
 post '/' do
-
-end
-
-# show all the users so far
-get '/list' do
+  name = params[:fruit_name]
+  f = Fruit.new(:name => name)
+  f.save
+  @fruits = Fruit.all
+  erb :index
 end

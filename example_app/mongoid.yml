@@ -3,6 +3,6 @@ development:
     default:
       hosts:
         - localhost:27017
-      database: mongo1
+      database: mongo1_example
   options:
     raise_not_found_error: false

@@ -1,0 +1,16 @@
+<h1>List of Fruits</h1>
+
+
+<ul>
+  <% @fruits.each do |f| %>
+    <li><%= f.name %></li>
+  <% end %>
+</ul>
+
+<h3>Add a new fruit</h3>
+
+<form method='post'>
+  <label>Name of fruit</label>
+  <input type='text' name='fruit_name'>
+  <input type='submit'>
+</form>
